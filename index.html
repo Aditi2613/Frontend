@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Transactions Dashboard</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Transactions Dashboard</h1>
+        
+        <div class="month-selection">
+            <label for="month">Select Month:</label>
+            <select id="month" onchange="fetchTransactions()">
+                <option value="01">January</option>
+                <option value="02">February</option>
+                <option value="03" selected>March</option>
+                <option value="04">April</option>
+                <option value="05">May</option>
+                <option value="06">June</option>
+                <option value="07">July</option>
+                <option value="08">August</option>
+                <option value="09">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+            <input type="text" id="search" placeholder="Search..." oninput="searchTransactions()">
+        </div>
+
+        <table id="transactions-table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody id="transactions-body"></tbody>
+        </table>
+
+        <div class="pagination">
+            <button onclick="loadPreviousPage()">Previous</button>
+            <button onclick="loadNextPage()">Next</button>
+        </div>
+
+        <div id="statistics">
+            <p>Total Sales: <span id="total-sales"></span></p>
+            <p>Total Sold Items: <span id="total-sold"></span></p>
+            <p>Total Not Sold Items: <span id="total-not-sold"></span></p>
+        </div>
+
+        <canvas id="transactions-chart"></canvas>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
